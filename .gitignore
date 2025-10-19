@@ -1,0 +1,40 @@
+# Python bytecode files
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest cache
+**/.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# JetBrain Pycharm
+.idea/
+
+# Result output - Ignore folder content, but keep folder
+tests/logs/*
+tests/reports/*
+tests/screenshots/*
+!tests/logs/.gitkeep
+!tests/reports/.gitkeep
+!tests/screenshots/.gitkeep
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# macOS system file
+.DS_Store
+
+# Windows system file
+Thumbs.db
+
+# Vim/NeoVim swap files
+*.swp
+
+# Other
+/screenshots/
+/main.py
