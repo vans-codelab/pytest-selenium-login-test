@@ -36,5 +36,4 @@ Thumbs.db
 *.swp
 
 # Other
-/screenshots/
-/main.py
+/notes/
