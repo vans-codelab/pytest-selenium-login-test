@@ -79,7 +79,7 @@ pip install -r requirements.txt
 ```
 
 ## Run the test
-### Option1 (recommended) – Using the terminal or command line:
+### Option 1 (recommended) – Using the terminal or command line:
 
 This option is recommended for executing the full test suite.
 - Ensure that the virtual environment of the downloaded project is activated (if not already done).
