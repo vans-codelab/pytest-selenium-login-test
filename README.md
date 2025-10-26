@@ -51,8 +51,8 @@ project/
 
 **Option A – Clone via Git**
 ```bash
-git clone https://github.com/vans-codelab/selenium-login-test
-cd selenium-login-test 
+git clone https://github.com/vans-codelab/pytest-selenium-login-test
+cd pytest-selenium-login-test 
 ```
 
 **Option B – Download ZIP from GitHub**  
