@@ -1,7 +1,8 @@
+from src.paths import LOG_FOLDER
 import logging
 import os
 
-LOG_FOLDER = "../tests/logs"
+# LOG_FOLDER = "../tests/logs"
 
 if not os.path.exists(LOG_FOLDER):
     os.makedirs(LOG_FOLDER)
@@ -10,7 +11,7 @@ if not os.path.exists(LOG_FOLDER):
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-# If not handlers is added to logger yet (avoids multiple logging)
+# If no handler is added to logger yet (avoids multiple logging)
 if not logger.handlers:
     # Filehandler - Writes logs into log file (.txt)
     filehandler = logging.FileHandler(filename=f"{LOG_FOLDER}/login.log", mode="w")

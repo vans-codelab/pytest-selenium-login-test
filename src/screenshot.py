@@ -1,9 +1,10 @@
 from src.logger import logger
+from src.paths import SCREENSHOT_FOLDER
 import os
 import time
 
 
-SCREENSHOT_FOLDER = "./screenshots"
+#SCREENSHOT_FOLDER = "./screenshots"
 
 
 def make_screenshot(name, webpage):
