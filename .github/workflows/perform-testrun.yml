@@ -39,6 +39,13 @@ jobs:
           name: pytest-report
           path: tests/reports/
 
+      - name: Upload logs (as Artifacts)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: logs
+          path: tests/logs/
+
       - name: Upload screenshots (as Artifacts)
         uses: actions/upload-artifact@v4
         if: always()
