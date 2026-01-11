@@ -32,9 +32,16 @@ jobs:
             --html=tests/reports/report_${REPORT_TIME}.html \
             --self-contained-html -s
 
-      - name: Upload HTML report
+      - name: Upload HTML report (as Artifact)
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: pytest-report
           path: tests/reports/
+
+      - name: Upload screenshots (as Artifacts)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: tests/screenshots/
