@@ -1,11 +1,9 @@
 from src.paths import LOG_FOLDER
 import logging
-import os
 
 
 # Create log folder (if not available)
-if not os.path.exists(LOG_FOLDER):
-    os.makedirs(LOG_FOLDER)
+LOG_FOLDER.mkdir(parents=True, exist_ok=True)
 
 # Define logger
 logger = logging.getLogger(__name__)
