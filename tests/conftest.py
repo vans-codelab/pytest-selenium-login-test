@@ -6,9 +6,6 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-LOG_FOLDER = "./logs"
-
-
 def pytest_addoption(parser):
     """Adds command line option '--headless' for pytest. If the test is started with 'pytest --headless',
     then the browser will open in headless mode (= without GUI)."""
