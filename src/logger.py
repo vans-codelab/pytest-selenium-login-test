@@ -16,7 +16,7 @@ if not logger.handlers:
     filehandler.setLevel(logging.INFO)
     logger.addHandler(filehandler)
     # Define log format
-    fmt = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-    filehandler.setFormatter(fmt)
+    log_format = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    filehandler.setFormatter(log_format)
 
 logger.info("Logger initialized.")
