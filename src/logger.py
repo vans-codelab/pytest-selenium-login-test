@@ -1,26 +1,22 @@
 from src.paths import LOG_FOLDER
 import logging
-import os
 
-# LOG_FOLDER = "../tests/logs"
 
-if not os.path.exists(LOG_FOLDER):
-    os.makedirs(LOG_FOLDER)
+# Create log folder (if not available)
+LOG_FOLDER.mkdir(parents=True, exist_ok=True)
 
-# Logger
+# Define logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 # If no handler is added to logger yet (avoids multiple logging)
 if not logger.handlers:
-    # Filehandler - Writes logs into log file (.txt)
+    # Define Filehandler (for writing logs into log file (.txt))
     filehandler = logging.FileHandler(filename=f"{LOG_FOLDER}/login.log", mode="w")
     filehandler.setLevel(logging.INFO)
     logger.addHandler(filehandler)
-
-    # Format of Log
-    fmt = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-    filehandler.setFormatter(fmt)
-
+    # Define log format
+    log_format = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    filehandler.setFormatter(log_format)
 
 logger.info("Logger initialized.")
