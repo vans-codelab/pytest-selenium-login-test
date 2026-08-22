@@ -10,26 +10,29 @@ Automated browser tests simulating user interactions, implemented with Selenium 
 - [Project setup](#project-setup)
 - [Test run (manual trigger, local run)](#test-run-manual-trigger-local-run)
 - [Test report (manual trigger, local run)](#test-report-manual-trigger-local-run)
-- [CI/CD - GitHub Actions (automatic trigger, remote run)](#cicd---github-actions-automatic-trigger-remote-run)
+- [CI - GitHub Actions (automatic trigger, remote run)](#ci---github-actions-automatic-trigger-remote-run)
 - [License](#license)
 
 
 ## Project overview
-This project automates user interactions in a browser, such as clicks and inputs, and verifies expected outcomes using assertions.
+This test automation project is built with Python, pytest, and Selenium WebDriver. 
+It automates user interactions in a browser and verifies the expected outcomes using assertions.
 
-It is part of my personal learning journey into test automation. 
-Over time, I have been improving the project by adding features like structured tests, logging, and setup/teardown logic to simulate a more realistic project environment.
-As I am still learning and growing in this area, I am always open to feedback and suggestions.
+Over time, additional features have been added (like logging, setup/teardown logic, and CI integration with GitHub Actions) 
+to reflect a more realistic test automation environment.
+
+This project demonstrates my practical approach to test automation, with a focus on clean, readable, and maintainable test code. 
+It also serves as a foundation for expanding the test suite and exploring further automation concepts.
 
 
 ## Features
 - Automated testing of browser-based user interactions
-- CI/CD integration via GitHub Actions (Automatically triggered test run via git push and PR)
+- CI integration via GitHub Actions (Automatic test run trigger)
 - Test case covers verifying successful login on a webpage
 - Automated screenshots and logging during test run
-- Clean folder structure
 - Applied Object-Oriented Programming (OOP) principles
 - Setup and teardown routines via `conftest.py`
+- Clean folder structure
 - Easy to extend and maintain
 
 
@@ -38,11 +41,11 @@ The project follows a simple structure that separates application code from test
 
 ```
 project/
-├───src/              -> Source code
-├───tests/            -> Test case(s) and related files
-│   ├───logs/         -> Logs (are generated during test run)
-│   ├───reports/      -> HTML test reports (can be generated from a command line)
-│   ├───screenshots/  -> Screenshots (are captured during test run)
+├───src/                # Source code
+├───tests/              # Tests and related files
+│   ├───logs/           # Logs (are generated during test run)
+│   ├───reports/        # HTML test reports (can be generated from a command line)
+│   ├───screenshots/    # Screenshots (are captured during test run)
 
 ```
 
@@ -110,13 +113,14 @@ This option is recommended for executing the full test suite.
     source .venv/bin/activate
     ```
 
-- Run all test cases
+- Run the tests
   ```bash
-  pytest 
+  python -m pytest
   ```
-- Or run all test cases in headless mode (= without visible browser window)
+
+- Or run the tests in headless mode (= without visible browser window)
   ```bash
-  pytest --headless
+  python -m pytest --headless
   ```
 
 ### Option 2: Using an IDE (e.g. PyCharm)
@@ -128,32 +132,33 @@ To run a single test case or for easier debugging, an IDE can be used.
 
 
 ## Test report (manual trigger, local run)
-This section explains how to generate a test report when the automated test run has been triggered manually and executed locally.  
+This section explains how to generate a test report after running the automated tests locally.  
 
 HTML test reports are stored in a `reports/` folder, which is part of the project structure.
 To generate a test report after the test run has been performed, execute the following command: 
 
 ```bash
-pytest --html=tests/reports/report.html
+python -m pytest --html=tests/reports/report.html
 ```
 
 This will create a HTML report inside the `reports/` folder.  
-The report provides an overview of the executed test case(s) and their results.
+The report provides an overview of the executed tests and their results.
 
 
-## CI/CD - GitHub Actions (automatic trigger, remote run)
+## CI - GitHub Actions (automatic trigger, remote run)
 
 Via GitHub Actions the test run is automatically triggered on every push and pull request to the `main` branch.
-The test is then run remotely on GitHub.
+The tests are then run remotely on GitHub.
 
 **Workflow:** [`.github/workflows/perform-testrun.yml`](.github/workflows/perform-testrun.yml)
 
 **Pipeline steps:**
-1. Check out code & set up Python 3.11
-2. Install dependencies (`requirements.txt`)
-3. Set report timestamp
-4. Run tests in headless mode (`pytest --headless`)
-5. Upload HTML report, logs, and screenshots as artifacts
+1. Check out code
+2. Set up Python 3.11
+3. Install dependencies (`requirements.txt`)
+4. Set report timestamp
+5. Run tests in headless mode
+6. Upload HTML report, logs, and screenshots as artifacts
 
 **To view the results of the automated test run:**
 1. Open the `Actions` tab of this project on GitHub
