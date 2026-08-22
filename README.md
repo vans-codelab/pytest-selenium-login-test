@@ -1,5 +1,5 @@
 # Test automation (web browsing)
-Automated browser tests simulating user interactions, implemented with Selenium and Pytest.
+Automated browser tests simulating user interactions, implemented with Python, pytest and Selenium.
 
 ## Table of contents
 
@@ -15,7 +15,7 @@ Automated browser tests simulating user interactions, implemented with Selenium 
 
 
 ## Project overview
-This test automation project is built with Python, pytest, and Selenium WebDriver. 
+This test automation project is built with Python, pytest, and Selenium. 
 It automates user interactions in a browser and verifies the expected outcomes using assertions.
 
 Over time, additional features have been added (like logging, setup/teardown logic, and CI integration with GitHub Actions) 
