@@ -95,7 +95,7 @@ pip install -r requirements.txt
 
 ## Test run (manual trigger, local run)
 This section explains how to manually trigger an automated test run, executed locally.  
-For automatic execution via CI/CD, see [GitHub Actions](#cicd---github-actions-automatic-trigger-remote-run).
+For automatic execution via CI/CD, see [GitHub Actions](#ci---github-actions-automatic-trigger-remote-run).
 
 ### Option 1 (recommended): Using the terminal or command line
 
