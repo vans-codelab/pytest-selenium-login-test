@@ -1,4 +1,7 @@
 # Test automation (web browsing)
+
+![CI - Test Status](https://github.com//vans-codelab/pytest-selenium-login-test/actions/workflows/perform-testrun.yml/badge.svg)
+
 Automated browser tests simulating user interactions, implemented with Python, pytest and Selenium.
 
 ## Table of contents
