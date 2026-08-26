@@ -148,7 +148,8 @@ The report provides an overview of the executed tests and their results.
 ## CI - GitHub Actions (automatic trigger, remote run)
 
 Via GitHub Actions the test run is automatically triggered on every push and pull request to the `main` branch.
-The tests are then run remotely on GitHub.
+In addition, it is also possible to trigger the test run manually.
+In both cases, the tests are run remotely on GitHub.
 
 **Workflow:** [`.github/workflows/perform-testrun.yml`](.github/workflows/perform-testrun.yml)
 
@@ -160,10 +161,16 @@ The tests are then run remotely on GitHub.
 5. Run tests in headless mode
 6. Upload HTML report, logs, and screenshots as artifacts
 
+**To manually trigger the workflow:**
+1. Go to this project on GitHub and open the the `Actions` tab
+2. Select the workflow `Perform Testrun`
+3. Trigger the workflow via `Run workflow`
+
 **To view the results of the automated test run:**
-1. Open the `Actions` tab of this project on GitHub
-2. Select a run
-3. Download the artifacts (report, logs, screenshots)
+1. Go to this project on GitHub and open the the `Actions` tab
+2. Select the workflow `Perform Testrun`
+3. Select a run
+4. Download the artifacts (report, logs, screenshots)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for more information.
