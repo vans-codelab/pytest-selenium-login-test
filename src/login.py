@@ -21,7 +21,7 @@ class Login:
 
     def enter_credentials(self, username, password):
         """Enters username and password, then confirms login button."""
-        logger.info("Enter username: %s", username)
+        logger.info("Enter username: ***")
         field_username = self.driver.find_element(By.ID, "username")
         field_username.send_keys(username)
         logger.info("Enter password: ***")

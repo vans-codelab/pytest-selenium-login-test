@@ -4,6 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from dotenv import load_dotenv
+import os
 
 
 def pytest_addoption(parser):
@@ -53,6 +55,14 @@ def browser(request):
     # Close browser
     logger.info("Close browser.")
     driver.quit()
+
+
+@pytest.fixture
+def valid_credentials():
+    load_dotenv()
+    username = os.environ.get("VALID_USERNAME", "tomsmith")
+    password = os.environ.get("VALID_PASSWORD", "SuperSecretPassword!")
+    return username, password
 
 
 @pytest.fixture(scope="session", autouse=True)   # Called automatically when testrun starts
