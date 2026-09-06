@@ -7,6 +7,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from dotenv import load_dotenv
 import os
 
+load_dotenv()  # Load env variables from .env file
+
 
 def pytest_addoption(parser):
     """Adds command line option '--headless' for pytest. If the test is started with 'pytest --headless',
@@ -59,10 +61,17 @@ def browser(request):
 
 @pytest.fixture
 def valid_credentials():
-    load_dotenv()
+    """Gets valid username and password from .env file, and uses default values (fallback) if not available."""
     username = os.environ.get("VALID_USERNAME", "tomsmith")
     password = os.environ.get("VALID_PASSWORD", "SuperSecretPassword!")
     return username, password
+
+
+@pytest.fixture
+def base_url():
+    """Gets base URL from .env file, and uses default value (fallback) if not available."""
+    base_url = os.environ.get("BASE_URL", "https://the-internet.herokuapp.com/login")
+    return base_url
 
 
 @pytest.fixture(scope="session", autouse=True)   # Called automatically when testrun starts
