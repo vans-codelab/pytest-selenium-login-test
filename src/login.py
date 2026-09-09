@@ -8,7 +8,6 @@ class Login:
 
     def __init__(self, driver, base_url):
         self.driver = driver
-        # self.url = "https://the-internet.herokuapp.com/login"
         self.url = base_url
         logger.info("Login class initialized.")
 
