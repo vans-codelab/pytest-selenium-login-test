@@ -35,5 +35,8 @@ Thumbs.db
 # Vim/NeoVim swap files
 *.swp
 
+# Environment variables
+.env
+
 # Other
 /notes/

@@ -6,9 +6,9 @@ from selenium.webdriver.support import expected_conditions as ec
 
 class Login:
 
-    def __init__(self, driver):
+    def __init__(self, driver, base_url):
         self.driver = driver
-        self.url = "https://the-internet.herokuapp.com/login"
+        self.url = base_url
         logger.info("Login class initialized.")
 
     def open_website(self):
@@ -21,7 +21,7 @@ class Login:
 
     def enter_credentials(self, username, password):
         """Enters username and password, then confirms login button."""
-        logger.info("Enter username: %s", username)
+        logger.info("Enter username: ***")
         field_username = self.driver.find_element(By.ID, "username")
         field_username.send_keys(username)
         logger.info("Enter password: ***")

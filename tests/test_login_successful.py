@@ -3,16 +3,15 @@ from src.login import Login
 from src.screenshot import make_screenshot
 
 
-def test_login_successful(browser):
-    login = Login(browser)
+def test_login_successful(browser, base_url, valid_credentials):
+    login = Login(browser, base_url)
     login.open_website()
     logger.info("Website is opened.")
 
     make_screenshot("01_Before_Login", login.driver)
     logger.info("Screenshot is saved.")
 
-    username = "tomsmith"
-    password = "SuperSecretPassword!"
+    username, password = valid_credentials
     login.enter_credentials(username, password)
     logger.info("Username and password are entered.")
 
@@ -21,6 +20,3 @@ def test_login_successful(browser):
 
     make_screenshot("02_After_Login", browser)
     logger.info("Screenshot is saved.")
-
-
-

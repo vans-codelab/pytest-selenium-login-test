@@ -33,6 +33,7 @@ It also serves as a foundation for expanding the test suite and exploring furthe
 - CI integration via GitHub Actions (Automatic test run trigger)
 - Test case covers verifying successful login on a webpage
 - Automated screenshots and logging during test run
+- Environment variables for credentials and base URL
 - Applied Object-Oriented Programming (OOP) principles
 - Setup and teardown routines via `conftest.py`
 - Clean folder structure
@@ -95,6 +96,17 @@ source .venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+
+### 4. Add environment variables (optional)
+This project uses environment variables which hold the credentials (username, password) and the base URL, 
+to keep sensitive data private and configuration easily replaceable.
+
+Since this project is based on an official demo website (https://the-internet.herokuapp.com), 
+the data are publicly known and therefore used as fallback values if no environment variables are provided.
+
+**To add environment variables:**  
+Rename `.env.example` to `.env` (this file already contains the required variables)
+
 
 ## Test run (manual trigger, local run)
 This section explains how to manually trigger an automated test run, executed locally.  

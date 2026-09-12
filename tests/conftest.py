@@ -4,6 +4,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load env variables from .env file
 
 
 def pytest_addoption(parser):
@@ -53,6 +57,21 @@ def browser(request):
     # Close browser
     logger.info("Close browser.")
     driver.quit()
+
+
+@pytest.fixture
+def valid_credentials():
+    """Gets valid username and password from .env file, and uses default values (fallback) if not available."""
+    username = os.environ.get("VALID_USERNAME", "tomsmith")
+    password = os.environ.get("VALID_PASSWORD", "SuperSecretPassword!")
+    return username, password
+
+
+@pytest.fixture
+def base_url():
+    """Gets base URL from .env file, and uses default value (fallback) if not available."""
+    base_url = os.environ.get("BASE_URL", "https://the-internet.herokuapp.com/login")
+    return base_url
 
 
 @pytest.fixture(scope="session", autouse=True)   # Called automatically when testrun starts
