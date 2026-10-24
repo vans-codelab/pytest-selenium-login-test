@@ -15,7 +15,7 @@ def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credenti
     login.enter_credentials(username, password)
     logger.info("Username and password are entered.")
 
-    assert login.is_logged_in(), "Login was not successful."
+    assert login.login_message() == "You logged into a secure area!"
     logger.info("Login was successful.")
 
     make_screenshot("02_After_Login", browser)
