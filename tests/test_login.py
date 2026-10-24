@@ -3,7 +3,7 @@ from src.login import Login
 from src.screenshot import make_screenshot
 import pytest
 
-def test_login_successful(browser, base_url, valid_credentials):
+def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credentials):
     login = Login(browser, base_url)
     login.open_website()
     logger.info("Website is opened.")
@@ -32,7 +32,7 @@ def test_login_successful(browser, base_url, valid_credentials):
 ], ids=["wrong_username", "wrong_password", "wrong_username_password",
         "empty_username", "empty_password", "empty_username_password"])
 
-def test_login_invalid(browser, base_url, username, password, expected_message):
+def test_login_fails_with_invalid_credentials(browser, base_url, username, password, expected_message):
     login = Login(browser, base_url)
     login.open_website()
     logger.info("Website is opened.")
