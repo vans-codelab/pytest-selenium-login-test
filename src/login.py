@@ -31,13 +31,6 @@ class Login:
         login_button = self.driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
         login_button.click()
 
-    def is_logged_in(self):
-        """Checks if login was successful"""
-        raw_message = self.driver.find_element(By.ID, "flash").text
-        message = raw_message.replace("×", "").strip()
-        logger.info('Message after login: "%s"', message)
-        return "logged into a secure area" in message.lower()  # returns True/False
-
     def login_message(self):
         """Returns the message that is shown after entering the credentials."""
         raw_message = self.driver.find_element(By.ID, "flash").text
