@@ -38,13 +38,6 @@ class Login:
         logger.info('Message after login: "%s"', message)
         return "logged into a secure area" in message.lower()  # returns True/False
 
-    def login_failed(self, expected_message):
-        """Checks if login failed (as expected due to wrong login credentials)."""
-        raw_message = self.driver.find_element(By.ID, "flash").text
-        message = raw_message.replace("×", "").strip()
-        logger.info('Message after login: "%s"', message)
-        return message == expected_message  # returns True/False
-
     def login_message(self):
         """Returns the message that is shown after entering the credentials."""
         raw_message = self.driver.find_element(By.ID, "flash").text
