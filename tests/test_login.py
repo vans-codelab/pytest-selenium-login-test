@@ -39,13 +39,13 @@ def test_login_fails_with_invalid_credentials(request, browser, base_url, userna
     login.open_website()
     logger.info("Website is opened.")
 
-    make_screenshot(f"01_Before_Login_invalid_{test_id}", login.driver)
+    make_screenshot(f"01_before_login_invalid_{test_id}", login.driver)
     logger.info("Screenshot is saved.")
 
     login.enter_credentials(username, password)
     logger.info("Username and password are entered.")
 
-    make_screenshot(f"02_After_Login_invalid_{test_id}", browser)
+    make_screenshot(f"02_after_login_invalid_{test_id}", browser)
     logger.info("Screenshot is saved.")
 
     assert login.login_message() == expected_message
