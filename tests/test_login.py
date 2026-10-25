@@ -8,14 +8,14 @@ def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credenti
     login.open_website()
     logger.info("Website is opened.")
 
-    make_screenshot("01_Before_Login", login.driver)
+    make_screenshot("01_before_login_valid", login.driver)
     logger.info("Screenshot is saved.")
 
     username, password = valid_credentials
     login.enter_credentials(username, password)
     logger.info("Username and password are entered.")
 
-    make_screenshot("02_After_Login", browser)
+    make_screenshot("02_after_login_valid", browser)
     logger.info("Screenshot is saved.")
 
     assert login.login_message() == "You logged into a secure area!"
