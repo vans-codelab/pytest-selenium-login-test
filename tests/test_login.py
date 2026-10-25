@@ -32,18 +32,20 @@ def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credenti
 ], ids=["wrong_username", "wrong_password", "wrong_username_password",
         "empty_username", "empty_password", "empty_username_password"])
 
-def test_login_fails_with_invalid_credentials(browser, base_url, username, password, expected_message):
+def test_login_fails_with_invalid_credentials(request, browser, base_url, username, password, expected_message):
+    test_id = request.node.name.split("[")[1].split("]")[0]
+
     login = Login(browser, base_url)
     login.open_website()
     logger.info("Website is opened.")
 
-    make_screenshot("01_Before_Login", login.driver)
+    make_screenshot(f"01_Before_Login_invalid_{test_id}", login.driver)
     logger.info("Screenshot is saved.")
 
     login.enter_credentials(username, password)
     logger.info("Username and password are entered.")
 
-    make_screenshot("02_After_Login", browser)
+    make_screenshot(f"02_After_Login_invalid_{test_id}", browser)
     logger.info("Screenshot is saved.")
 
     assert login.login_message() == expected_message
