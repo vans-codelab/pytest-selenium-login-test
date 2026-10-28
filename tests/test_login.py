@@ -3,6 +3,7 @@ from src.login import Login
 from src.screenshot import make_screenshot
 import pytest
 
+
 def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credentials):
     login = Login(browser, base_url)
     login.open_website()
@@ -11,8 +12,7 @@ def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credenti
     make_screenshot("01_before_login_valid", login.driver)
     logger.info("Screenshot is saved.")
 
-    username, password = valid_credentials
-    login.enter_credentials(username, password)
+    login.enter_credentials(valid_credentials["username"], valid_credentials["password"])
     logger.info("Username and password are entered.")
 
     make_screenshot("02_after_login_valid", browser)
@@ -43,9 +43,9 @@ def test_login_fails_with_invalid_credentials(request, browser, base_url, valid_
     logger.info("Screenshot is saved.")
 
     if username is None:
-        username = valid_credentials[0]
+        username = valid_credentials["username"]
     if password is None:
-        password = valid_credentials[1]
+        password = valid_credentials["password"]
 
     login.enter_credentials(username, password)
     logger.info("Username and password are entered.")
