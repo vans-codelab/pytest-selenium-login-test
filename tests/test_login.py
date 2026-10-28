@@ -23,16 +23,16 @@ def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credenti
 
 
 @pytest.mark.parametrize("username, password, expected_message", [
-    ("INVALID_USERNAME", "SuperSecretPassword!", "Your username is invalid!"),
-    ("tomsmith", "INVALID_PASSWORD", "Your password is invalid!"),
+    ("INVALID_USERNAME", None, "Your username is invalid!"),
+    (None, "INVALID_PASSWORD", "Your password is invalid!"),
     ("INVALID_USERNAME", "INVALID_PASSWORD", "Your username is invalid!"),
-    ("", "SuperSecretPassword!", "Your username is invalid!"),
-    ("tomsmith", "", "Your password is invalid!"),
+    ("", None, "Your username is invalid!"),
+    (None, "", "Your password is invalid!"),
     ("", "", "Your username is invalid!"),
 ], ids=["wrong_username", "wrong_password", "wrong_username_password",
         "empty_username", "empty_password", "empty_username_password"])
-
-def test_login_fails_with_invalid_credentials(request, browser, base_url, username, password, expected_message):
+def test_login_fails_with_invalid_credentials(request, browser, base_url, valid_credentials,
+                                              username, password, expected_message):
     test_id = request.node.callspec.id
 
     login = Login(browser, base_url)
@@ -41,6 +41,11 @@ def test_login_fails_with_invalid_credentials(request, browser, base_url, userna
 
     make_screenshot(f"01_before_login_invalid_{test_id}", login.driver)
     logger.info("Screenshot is saved.")
+
+    if username is None:
+        username = valid_credentials[0]
+    if password is None:
+        password = valid_credentials[1]
 
     login.enter_credentials(username, password)
     logger.info("Username and password are entered.")
