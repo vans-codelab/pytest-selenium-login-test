@@ -33,7 +33,7 @@ def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credenti
         "empty_username", "empty_password", "empty_username_password"])
 
 def test_login_fails_with_invalid_credentials(request, browser, base_url, username, password, expected_message):
-    test_id = request.node.name.split("[")[1].split("]")[0]
+    test_id = request.node.callspec.id
 
     login = Login(browser, base_url)
     login.open_website()
