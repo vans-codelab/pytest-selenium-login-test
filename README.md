@@ -176,12 +176,12 @@ In both cases, the tests are run remotely on GitHub.
 5. Run tests in headless mode
 6. Upload HTML report, logs, and screenshots as artifacts
 
-**To manually trigger the workflow:**
+**Manually trigger the workflow:**
 1. Go to this project on GitHub and open the the `Actions` tab
 2. Select the workflow `Perform Testrun`
 3. Trigger the workflow via `Run workflow`
 
-**To view the results of the automated test run:**
+**View the results of the automated test run:**
 1. Go to this project on GitHub and open the the `Actions` tab
 2. Select the workflow `Perform Testrun`
 3. Select a run
