@@ -3,6 +3,9 @@ from src.login import Login
 from src.screenshot import make_screenshot
 import pytest
 
+# Placeholder in parametrize list. Valid value will be provided from fixture during test run.
+VALID_CREDENTIALS = None
+
 
 def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credentials):
     login = Login(browser, base_url)
@@ -23,11 +26,11 @@ def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credenti
 
 
 @pytest.mark.parametrize("username, password, expected_message", [
-    ("INVALID_USERNAME", None, "Your username is invalid!"),
-    (None, "INVALID_PASSWORD", "Your password is invalid!"),
+    ("INVALID_USERNAME", VALID_CREDENTIALS, "Your username is invalid!"),
+    (VALID_CREDENTIALS, "INVALID_PASSWORD", "Your password is invalid!"),
     ("INVALID_USERNAME", "INVALID_PASSWORD", "Your username is invalid!"),
-    ("", None, "Your username is invalid!"),
-    (None, "", "Your password is invalid!"),
+    ("", VALID_CREDENTIALS, "Your username is invalid!"),
+    (VALID_CREDENTIALS, "", "Your password is invalid!"),
     ("", "", "Your username is invalid!"),
 ], ids=["wrong_username", "wrong_password", "wrong_username_password",
         "empty_username", "empty_password", "empty_username_password"])
@@ -42,9 +45,9 @@ def test_login_fails_with_invalid_credentials(request, browser, base_url, valid_
     make_screenshot(f"01_before_login_invalid_{test_id}", login.driver)
     logger.info("Screenshot is saved.")
 
-    if username is None:
+    if username is VALID_CREDENTIALS:
         username = valid_credentials["username"]
-    if password is None:
+    if password is VALID_CREDENTIALS:
         password = valid_credentials["password"]
 
     login.enter_credentials(username, password)
