@@ -31,7 +31,7 @@ It also serves as a foundation for expanding the test suite and exploring furthe
 ## Features
 - Automated testing of browser-based user interactions
 - CI integration via GitHub Actions (Automatic test run trigger)
-- Test case covers verifying successful login on a webpage
+- Test cases cover verifying the login behavior on a webpage with valid and invalid credentials
 - Automated screenshots and logging during test run
 - Environment variables for credentials and base URL
 - Applied Object-Oriented Programming (OOP) principles
