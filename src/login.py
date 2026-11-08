@@ -35,5 +35,5 @@ class Login:
         """Returns the message that is shown after entering the credentials."""
         raw_message = self.driver.find_element(By.ID, "flash").text
         message = raw_message.replace("×", "").strip()
-        logger.info('Message after login: "%s"', message)
+        logger.info("Message after login: '%s'", message)
         return message
