@@ -21,7 +21,9 @@ def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credenti
     make_screenshot("02_after_login_valid", browser)
     logger.info("Screenshot is saved.")
 
-    assert login.login_message() == "You logged into a secure area!"
+    expected_message = "You logged into a secure area!"
+    logger.info("Expected message: '%s'", expected_message)
+    assert login.login_message() == expected_message
     logger.info("Login was successful.")
 
 
@@ -56,5 +58,6 @@ def test_login_fails_with_invalid_credentials(request, browser, base_url, valid_
     make_screenshot(f"02_after_login_invalid_{test_id}", browser)
     logger.info("Screenshot is saved.")
 
+    logger.info("Expected message: '%s'", expected_message)
     assert login.login_message() == expected_message
     logger.info("Login failed (as expected).")
