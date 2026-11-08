@@ -24,7 +24,7 @@ def test_login_succeeds_with_valid_credentials(browser, base_url, valid_credenti
     expected_message = "You logged into a secure area!"
     logger.info("Expected message: '%s'", expected_message)
     assert login.login_message() == expected_message
-    logger.info("Login was successful.")
+    logger.info("Login is successful.")
 
 
 @pytest.mark.parametrize("username, password, expected_message", [
@@ -60,4 +60,4 @@ def test_login_fails_with_invalid_credentials(request, browser, base_url, valid_
 
     logger.info("Expected message: '%s'", expected_message)
     assert login.login_message() == expected_message
-    logger.info("Login failed (as expected).")
+    logger.info("Login is denied as expected.")
