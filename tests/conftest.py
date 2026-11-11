@@ -61,10 +61,10 @@ def browser(request):
 
 @pytest.fixture
 def valid_credentials():
-    """Gets valid username and password from .env file, and uses default values (fallback) if not available."""
-    username = os.environ.get("VALID_USERNAME", "tomsmith")
-    password = os.environ.get("VALID_PASSWORD", "SuperSecretPassword!")
-    return username, password
+    """Gets valid username and password from .env file, and uses default values (fallback) if not available.
+    Returns a dictionary with the keys 'username' and 'password'."""
+    return {"username": os.environ.get("VALID_USERNAME", "tomsmith"),
+            "password": os.environ.get("VALID_PASSWORD", "SuperSecretPassword!")}
 
 
 @pytest.fixture

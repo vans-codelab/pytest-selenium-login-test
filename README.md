@@ -31,7 +31,7 @@ It also serves as a foundation for expanding the test suite and exploring furthe
 ## Features
 - Automated testing of browser-based user interactions
 - CI integration via GitHub Actions (Automatic test run trigger)
-- Test case covers verifying successful login on a webpage
+- Test cases cover verifying the login behavior on a webpage with valid and invalid credentials
 - Automated screenshots and logging during test run
 - Environment variables for credentials and base URL
 - Applied Object-Oriented Programming (OOP) principles
@@ -176,13 +176,13 @@ In both cases, the tests are run remotely on GitHub.
 5. Run tests in headless mode
 6. Upload HTML report, logs, and screenshots as artifacts
 
-**To manually trigger the workflow:**
-1. Go to this project on GitHub and open the the `Actions` tab
+**Manually trigger the workflow:**
+1. Open the `Actions` tab of this GitHub project
 2. Select the workflow `Perform Testrun`
 3. Trigger the workflow via `Run workflow`
 
-**To view the results of the automated test run:**
-1. Go to this project on GitHub and open the the `Actions` tab
+**View the results of the automated test run:**
+1. Open the `Actions` tab of this GitHub project
 2. Select the workflow `Perform Testrun`
 3. Select a run
 4. Download the artifacts (report, logs, screenshots)
